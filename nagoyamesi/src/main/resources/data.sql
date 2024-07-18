@@ -86,7 +86,7 @@ INSERT IGNORE INTO reviews (id, restaurant_id, user_id, score, content) VALUES (
 
 
 
--- favoritesテーブル
+--favorites
  INSERT IGNORE INTO favorites (id, restaurant_id, user_id) VALUES (1, 1, 1);
  INSERT IGNORE INTO favorites (id, restaurant_id, user_id) VALUES (2, 2, 1);
  INSERT IGNORE INTO favorites (id, restaurant_id, user_id) VALUES (3, 3, 1);

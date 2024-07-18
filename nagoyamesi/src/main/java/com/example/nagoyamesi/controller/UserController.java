@@ -68,26 +68,26 @@ public class UserController {
 		return "redirect:/user";
 	}
 
-	@PostMapping("/create")
-	public String create(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
-			RedirectAttributes redirectAttributes) {
-		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
-		userService.upgradeRole(user.getId());
-
-		redirectAttributes.addFlashAttribute("successMessage", "有料会員登録が完了しました。");
-
-		return "redirect:https://buy.stripe.com/test_fZe3eGfzS9Rle0oaEE?locale=ja&__embed_source=buy_btn_1OmuwlIhYmnFrNDSGoP4HbWj";
-	}
-
-	@PostMapping("/delete")
-	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
-			RedirectAttributes redirectAttributes) {
-		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
-		userService.downgradeRole(user.getId());
-
-		redirectAttributes.addFlashAttribute("successMessage", "サブスクリプションを解約しました。");
-
-		return "redirect:/";
-	}
+//	@PostMapping("/create")
+//	public String create(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
+//			RedirectAttributes redirectAttributes) {
+//		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
+//		userService.upgradeRole(user.getId());
+//
+//		redirectAttributes.addFlashAttribute("successMessage", "有料会員登録が完了しました。");
+//
+//		return "redirect:https://buy.stripe.com/test_fZe3eGfzS9Rle0oaEE?locale=ja&__embed_source=buy_btn_1OmuwlIhYmnFrNDSGoP4HbWj";
+//	}
+//
+//	@PostMapping("/delete")
+//	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
+//			RedirectAttributes redirectAttributes) {
+//		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
+//		userService.downgradeRole(user.getId());
+//
+//		redirectAttributes.addFlashAttribute("successMessage", "サブスクリプションを解約しました。");
+//
+//		return "redirect:/";
+//	}
 
 }

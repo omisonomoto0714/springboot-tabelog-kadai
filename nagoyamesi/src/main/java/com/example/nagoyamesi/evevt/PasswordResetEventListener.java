@@ -5,17 +5,15 @@ import java.util.UUID;
 import org.springframework.context.event.EventListener;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
 
 import com.example.nagoyamesi.entity.User;
 import com.example.nagoyamesi.service.VerificationTokenService;
 
-@Component
-public class SignupEventListener {
+public class PasswordResetEventListener {
 	private final VerificationTokenService verificationTokenService;
 	private final JavaMailSender javaMailSender;
 
-	public SignupEventListener(VerificationTokenService verificationTokenService, JavaMailSender mailSender) {
+	public PasswordResetEventListener(VerificationTokenService verificationTokenService, JavaMailSender mailSender) {
 		this.verificationTokenService = verificationTokenService;
 		this.javaMailSender = mailSender;
 	}
@@ -29,15 +27,13 @@ public class SignupEventListener {
 		String recipientAddress = user.getEmail();
 		String subject = "メール認証";
 		String confirmationUrl = signupEvent.getRequestUrl() + "/verify?token=" + token;
-		String message = "以下のリンクをクリックして会員登録を完了してください。";
+		String message = "以下のリンクをクリックしてパスワードのリセットを完了してください。";
 
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(recipientAddress);
 		mailMessage.setSubject(subject);
-		mailMessage.setText(message + "\n" + confirmationUrl);
+		mailMessage.setText(message + "\n" + confirmationUrl + "\n");
+
 		javaMailSender.send(mailMessage);
 	}
-	
-	
-	
 }
