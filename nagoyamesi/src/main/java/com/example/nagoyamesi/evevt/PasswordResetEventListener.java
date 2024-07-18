@@ -32,7 +32,7 @@ public class PasswordResetEventListener {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(recipientAddress);
 		mailMessage.setSubject(subject);
-		mailMessage.setText(message + "\n" + confirmationUrl + "\n");
+		mailMessage.setText(message + "\n" + confirmationUrl);
 
 		javaMailSender.send(mailMessage);
 	}

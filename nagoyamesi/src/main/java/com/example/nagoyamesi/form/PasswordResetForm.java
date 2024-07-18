@@ -13,5 +13,9 @@ public class PasswordResetForm {
 
 	@NotBlank(message = "メールアドレスを入力してください。")
 	private String email;
+	
+	
+	@NotBlank(message = "新しいパスワードを入力してください。")
+	private String password;
 
 }

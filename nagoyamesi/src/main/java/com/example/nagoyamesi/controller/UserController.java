@@ -67,6 +67,12 @@ public class UserController {
 
 		return "redirect:/user";
 	}
+	
+	
+	@GetMapping("/passwordReset")
+	public String reset(Model model) {
+		return "redirect:/";
+	}
 
 //	@PostMapping("/create")
 //	public String create(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
