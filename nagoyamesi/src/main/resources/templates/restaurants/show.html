@@ -30,7 +30,7 @@
                             	 
                             	 
                             	 <!-- お気に入りセクション -->
-                                 <div sec:authorize="isAuthenticated()">
+                                <div th:if="${#authorization.expression('hasRole(''ROLE_PREMIUM'')')}" class="text-right">
                                      <div th:if="${isFavorite}">
                                          <a href="#" onclick="event.preventDefault(); document.getElementById('favorite-form').submit();">&#9829; お気に入り解除</a>
                                          <form method="post" th:action="@{/restaurants/__${restaurant.getId()}__/favorites/__${favorite.getId()}__/delete}" id="favorite-form" class="d-none"></form>                                        
@@ -41,6 +41,7 @@
                                      </div>
                                  </div>                            
                              </div>
+                       
                             	 
                             	 
                             	 

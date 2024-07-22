@@ -19,7 +19,7 @@ public class WebSecurityConfig {
 		http
 				.authorizeHttpRequests((requests) -> requests
 						.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**",
-								"/restaurants", "/restaurants/{id}", "/restaurants/{id}/reviews", "/stripe/webhook")
+								"/restaurants", "/restaurants/{id}", "/restaurants/{id}/reviews", "/stripe/webhook", "/auth/passwordReset/**")
 						.permitAll() //すべて
 						.requestMatchers("/admin/**").hasRole("ADMIN") //管理者のみ
 						.anyRequest().authenticated() //それ以外はログインが必須
@@ -35,7 +35,7 @@ public class WebSecurityConfig {
 						.permitAll()
 
 				)
-				.csrf().ignoringRequestMatchers("/stripe/webhook");
+				.csrf(csrf -> csrf.ignoringRequestMatchers("/stripe/webhook"));
 
 		return http.build();
 	}

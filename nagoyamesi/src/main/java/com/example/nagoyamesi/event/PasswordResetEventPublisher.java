@@ -1,4 +1,4 @@
-package com.example.nagoyamesi.evevt;
+package com.example.nagoyamesi.event;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
@@ -16,4 +16,7 @@ public class PasswordResetEventPublisher {
 	public void publishPasswordResetEvent(User user, String requestUrl) {
 		applicationEventPublisher.publishEvent(new PasswordResetEvent(this, user, requestUrl));
 	}
+//	public void publishSubscriptionEvent(User user, String requestUrl) {
+//		applicationEventPublisher.publishEvent(new PasswordResetEvent(this, user, requestUrl));
+//	}
 }

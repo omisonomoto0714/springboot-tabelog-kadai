@@ -1,4 +1,4 @@
-package com.example.nagoyamesi.evevt;
+package com.example.nagoyamesi.event;
 
 import java.util.UUID;
 

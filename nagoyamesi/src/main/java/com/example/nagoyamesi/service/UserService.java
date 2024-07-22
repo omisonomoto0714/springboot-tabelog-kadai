@@ -59,10 +59,10 @@ public class UserService {
 
 	//パスワードリセット機能
 	@Transactional
-	public void passwordUpdate(PasswordResetForm passwordResetForm) {
+	public void updatePassword(PasswordResetForm passwordResetForm) {
 		User user = userRepository.findByEmail(passwordResetForm.getEmail());
 
-		//		user.setPassword(passwordEncoder.encode(passwordResetForm.getPassword()));
+				user.setPassword(passwordEncoder.encode(passwordResetForm.getPassword()));
 		user.setEnabled(true);
 
 		userRepository.save(user);

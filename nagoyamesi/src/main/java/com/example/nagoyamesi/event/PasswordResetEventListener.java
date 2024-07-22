@@ -1,4 +1,4 @@
-package com.example.nagoyamesi.evevt;
+package com.example.nagoyamesi.event;
 
 import java.util.UUID;
 
@@ -19,14 +19,14 @@ public class PasswordResetEventListener {
 	}
 
 	@EventListener
-	private void onSignupEvent(SignupEvent signupEvent) {
-		User user = signupEvent.getUser();
+	private void onPasswordResetEvent(PasswordResetEvent passwordResetEvent) {
+		User user = passwordResetEvent.getUser();
 		String token = UUID.randomUUID().toString();
 		verificationTokenService.create(user, token);
 
 		String recipientAddress = user.getEmail();
 		String subject = "メール認証";
-		String confirmationUrl = signupEvent.getRequestUrl() + "/verify?token=" + token;
+		String confirmationUrl = passwordResetEvent.getRequestUrl() + "/verify?token=" + token;
 		String message = "以下のリンクをクリックしてパスワードのリセットを完了してください。";
 
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
