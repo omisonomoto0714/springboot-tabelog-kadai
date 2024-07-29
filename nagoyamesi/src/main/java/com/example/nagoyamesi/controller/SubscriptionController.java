@@ -50,6 +50,14 @@ public class SubscriptionController {
 		return "redirect:https://buy.stripe.com/test_fZe3eGfzS9Rle0oaEE?locale=ja&__embed_source=buy_btn_1OmuwlIhYmnFrNDSGoP4HbWj";
 	}
 
+	
+	
+	@GetMapping("/delete")
+	public String deleteModel(Model model) {
+	    return "subscription/delete";
+	}
+	
+	
 	@PostMapping("/delete")
 	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
 			RedirectAttributes redirectAttributes, Model model) {
@@ -64,3 +72,5 @@ public class SubscriptionController {
 
 
 }
+
+

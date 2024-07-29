@@ -179,14 +179,28 @@
                                      <div sec:authorize="isAnonymous()" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
                                          <div class="card">
                                              <div class="card-body">                                                                                                                                                                                                                     
-                                                 <p class="card-text">予約するには<a href="#">有料会員へ加入してください。</a></p>                                                                                                                                            
+                                                 <p class="card-text">予約するには<br><a th:href="@{/login}">ログイン後有料会員へ加入してください。</a></p>                                                                                                                                            
                                                  <button type="submit" class="btn text-white shadow-sm w-100 nagoyamesi-btn" disabled>予約する</button>                                                                                                                
                                              </div>
                                          </div>  
                                      </div>  
                                      
+                                     
+                                     
+                                     <div sec:authorize="hasRole('ROLE_GENERAL')" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
+                                        <div class="card">
+                                            <div class="card-body">                                                                                                                                                                                                                     
+                                                <p class="card-text">予約するには<br><a th:href="@{/subscription/register}">有料会員へ加入してください。</a></p>                                                                                                                                            
+                                                <button type="submit" class="btn text-white shadow-sm w-100 nagoyamesi-btn" disabled>予約する</button>                                                                                                                
+                                            </div>
+                                        </div>  
+                                    </div> 
+                                     
+                                     
+                                     
+                                    
 
-                                     <div sec:authorize="isAuthenticated()" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
+                                     <div sec:authorize="hasRole('ROLE_PREMIUM')" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
                                         <div class="card">
                                             <div class="card-body"> 
                                                 <form method="get" th:action="@{/restaurants/__${restaurant.getId()}__/reservations/input}" th:object="${reservationInputForm}">                                                                                                                                                                       
@@ -228,7 +242,7 @@
                              <div class="container px-0">
                                  <h2 class="mb-4 text-center">レビュー</h2>
                                  <div sec:authorize="isAuthenticated()" th:unless="${hasUserAlreadyReviewed}" class="row justify-content-center mb-4">
-                                     <div class="col-lg-4">
+                                     <div sec:authorize="hasRole('ROLE_PREMIUM')" class="col-lg-4">
                                          <a th:href="@{/restaurants/__${restaurant.getId()}__/reviews/register}" class="btn text-white shadow-sm w-100 nagoyamesi-btn">レビューを投稿する</a>
                                      </div>
                                  </div>

@@ -133,3 +133,17 @@ CREATE TABLE IF NOT EXISTS favorites
    FOREIGN KEY (restaurant_id) REFERENCES restaurants (id),
    FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+
+CREATE TABLE IF NOT EXISTS password_reset_token
+(
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   user_id INT NOT NULL,
+   token VARCHAR(255) NOT NULL,
+   expiry_date DATETIME NOT NULL,
+   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   UNIQUE
+   (id, user_id),
+   FOREIGN KEY (user_id) REFERENCES users (id)
+);
