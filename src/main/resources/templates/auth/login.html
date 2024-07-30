@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+		
+		<div th:replace="~{fragment :: styles}"></div>
+			
+			<title>ログイン画面</title>
+	</head>
+	<body>
+		<div class="nagoyamesi-warapper">
+			
+			<div th:replace="~{fragment :: header}"></div>
+		
+			<main>
+				<div class="container pt-4 pb-5 nagoyamesi-container">
+					
+					<div class="row justify-content-center">
+						<div class="col-xl-3 col-lg-4 col-md-5 col-sm-7">
+							<h1 class="mb-4 text-center">ログイン</h1>
+							
+							<div th:if="${param.error}" class="alert alert-danger">
+								メールアドレスまたはパスワードが正しくありません。
+							</div>
+							
+							<form th:action="@{/login}" method="post">
+								<div class="form-group mb-3">
+									<input type="text" class="form-control" name="username" autocomplete="email" placeholder="メールアドレス" autofocus>
+								</div>
+								<div class="form-group mb-3">
+									<input type="password" class="form-control" name="password" autocomplete="new-password" placeholder="パスワード">
+								</div>
+								
+								<div class="form-group d-flex justify-content-center my-4">
+									<button type="submit" class="btn text-white shadow-sm w-100 nagoyamesi-btn">ログイン</button>
+								</div>
+							</form>
+							
+							
+							<div class="text-center">
+								<a th:href="@{/auth/passwordReset}">
+									パスワードをお忘れの方はこちら
+								</a>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<div th:replace="~{fragment :: footer}"></div>
+			
+		</div>
+		<div th:replace="~{fragment :: scripts}"></div>
+	</body>
+</html>

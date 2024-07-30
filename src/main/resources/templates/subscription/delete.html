@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+		
+		<div th:replace="~{fragment :: styles}"></div>
+		
+		<title>有料会員退会</title>
+	</head>
+	<body>
+		<div class="nagoyamesi-wrapper">
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				 <div class="container pt-4 pb-5 nagoyamesi-container">
+                     <div class="row justify-content-center">
+                         <div class="col-xl-9 col-xl-10 col-lg-11">
+                             <nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                 <ol class="breadcrumb mb-0"> 
+                                     <li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>                                                            
+                                     <li class="breadcrumb-item active" aria-current="page">有料会員退会</li>
+                                 </ol>
+                             </nav> 
+                             
+                             <h1 class="mb-3 text-center">有料会員退会</h1>
+                             
+                             <div class="card">
+  								<h3 class="card-header text-center">退会しますか？</h3>
+ 								 <div class="card-body">
+   									 <h4 class="card-title">以下の機能が使えなくなりますがよろしいですか？</h4>
+  									  <ul>
+											<li>予約機能</li>
+											<li>お気に入り機能</li>
+											<li>レビュー投稿</li>
+										</ul>
+										<form method="post" th:action="@{/subscription/delete}">
+								<div class="form-group d-flex justify-content-center">
+									<button class="btn text-white shadow-sm w-50 nagoyamesi-btn-danger">退会</button>
+								</div>
+							</form>
+  									  
+  								</div>
+							</div>
+
+                           
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                         </div>
+                     </div>
+				 </div>
+			</main>
+			
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		<div th:replace="~{fragment :: scripts}"></div>
+		  
+	</body>
+</html>

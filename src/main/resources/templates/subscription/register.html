@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www/thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+		
+		<div th:replace="~{fragment :: styles}"></div>
+		
+		<title>有料会員加入</title>
+	</head>
+	<body>
+		<div class="nagoyamesi-wrapper">
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				 <div class="container pt-4 pb-5 nagoyamesi-container">
+                     <div class="row justify-content-center">
+                         <div class="col-xl-9 col-xl-10 col-lg-11">
+                             <nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                 <ol class="breadcrumb mb-0"> 
+                                     <li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>                                                            
+                                     <li class="breadcrumb-item active" aria-current="page">有料会員加入</li>
+                                 </ol>
+                             </nav> 
+                             
+                             <h1 class="mb-3 text-center">有料会員加入</h1>
+                             <div class="row text-center">
+                             <p>月額３００円で以下の機能が利用できるようになります！</p>
+                             </div>
+                             
+                              
+                             
+                             <div class="container">
+   								 <div class="row">
+   								   <div class="col-md-6 text-center mr-3 ml-3">
+										  <img th:src="@{/images/reservation.png}" class="sample-png"alt="サンプル画像１">
+										  
+										  <h2>来店予約</h2>
+										  <p>
+											  店舗への来店予約を行い一覧で管理することができます。
+										  </p>
+     							   </div>
+     							   
+     							   <div class="col-md-6 text-center mr-3 ml-3">
+       									 <img th:src="@{/images/favorite.png}" class="sample-png" alt="サンプル画像２">
+       									 <h2>お気に入り登録</h2>
+       									 <p>
+												お気に入りの店舗を登録し、一覧で管理することができます。
+       									 </p>
+       								
+      							   </div>
+      							   <div class="row">
+     							   <div class="col-md-6 text-center mr-3 ml-3">
+										<img th:src="@{/images/review.png}" class="sample-png" alt="サンプル画像３">
+										<h2>レビュー投稿</h2>
+										<p>
+											利用した店舗の感想を☆とコメントで投稿することができます。
+										</p>
+     							  	 	
+   								   </div>
+   								   
+   								   
+   								   <div class="col-md-6 text-center mr-3 ml-3">
+										  <div class="card">
+ 											 <div class="card-body">
+												  <h5 class="card-title">有料会員加入</h5>
+												  <p class="card-text">決算ボタンを押すと外部サイトに移動します。</p>
+										 
+											 <div class="row justify-content-center mb-4">
+						
+								<div class="col-lg-4">
+									
+									<form th:action="@{/subscription/create}" method="post">
+                                <button id="paymentButton" class="btn text-white shadow-sm w-100 nagoyamesi-btn">決済する</button>
+									</form>
+								</div>
+											 
+											 
+                            </div> 
+                            </div>
+   								   
+   								   </div>
+   								   
+   								   
+   								   
+      							   </div>
+
+   								 </div>
+						     </div>
+                             
+                             
+                         </div>
+                     </div>
+				 </div>
+			</main>
+			
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		<div th:replace="~{fragment :: scripts}"></div>
+		<script src="https://js.stripe.com/v3"></script>
+         <script th:inline="javascript">
+             const sessionId = /*[[${sessionId}]]*/"sessionId";                
+         </script>        
+         <script th:src="@{/js/stripe.js}"></script>  
+	</body>
+</html>

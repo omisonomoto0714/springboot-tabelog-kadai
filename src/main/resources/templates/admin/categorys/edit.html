@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www/thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+		
+		<div th:replace="~{fragment :: styles}"></div>
+		
+		<title>カテゴリー編集</title>
+	</head>
+	<body>
+		<div class="nagoyamesi-wrapper">
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				 <div class="container pt-4 pb-5 nagoyamesi-container">
+                     <div class="row justify-content-center">
+                         <div class="col-xl-9 col-xl-10 col-lg-11">
+                             <nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                 <ol class="breadcrumb mb-0"> 
+                                     <li class="breadcrumb-item"><a th:href="@{/admin/categorys}">カテゴリー一覧</a></li>                                                            
+                                     <li class="breadcrumb-item active" aria-current="page">カテゴリー編集</li>
+                                 </ol>
+                             </nav> 
+                             
+                             <h1 class="mb-4 text-center">カテゴリー編集</h1>
+                             
+                             
+<!--                             <div class="card text-center mb-4">-->
+<!--								 <div class="cord-body">-->
+<!--                             <form method="post" th:action="@{/admin/categorys/__${categoryEditForm.getId()}__/update}" th:object="${categoryEditForm}" enctype="multipart/form-data">   -->
+<!--                                 <input type="hidden" th:field="*{id}">-->
+                                                                                          
+<!--                                 <div class="form-group row mb-3">-->
+<!--                                     <div class="col-md-4">-->
+<!--                                         <label for="name" class="col-form-label text-md-left fw-bold">カテゴリ名</label>-->
+<!--                                     </div>-->
+<!--                                     <div class="col-md-8">                                    -->
+<!--                                         <div th:if="${#fields.hasErrors('categoryName')}" class="text-danger small mb-2" th:errors="*{categoryName}"></div>                                    -->
+<!--                                         <input type="text" class="form-control" th:field="*{categoryName}" autofocus>-->
+<!--                                     </div>-->
+<!--                                 </div>-->
+<!--                             </form>-->
+<!--								 </div>-->
+<!--                             </div>-->
+
+
+
+<div class="card text-center mb-3">
+  <div class="card-body edit-card">
+
+    <form method="post" th:action="@{/admin/categorys/__${categoryEditForm.getId()}__/update}" th:object="${categoryEditForm}" enctype="multipart/form-data">  
+                                 <input type="hidden" th:field="*{id}">
+                                                                                          
+                                 <div class="form-group row mb-3">
+                                     <div class="col-md-4">
+                                         <label for="name" class="col-form-label text-md-left fw-bold">カテゴリ名</label>
+                                     </div>
+                                     <div class="col-md-8">                                    
+                                         <div th:if="${#fields.hasErrors('categoryName')}" class="text-danger small mb-2" th:errors="*{categoryName}"></div>                                    
+                                         <input type="text" class="form-control" th:field="*{categoryName}" autofocus>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group d-flex justify-content-center my-4">
+                                     <button type="submit" class="btn text-white shadow-sm w-50 nagoyamesi-btn">更新</button>
+                                 </div>
+                                 
+                             </form>
+   
+  </div>
+</div>
+
+
+
+                         </div>
+                     </div>
+				 </div>
+			</main>
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		<div th:replace="~{fragment :: scripts}"></div>
+	</body>
+</html>
