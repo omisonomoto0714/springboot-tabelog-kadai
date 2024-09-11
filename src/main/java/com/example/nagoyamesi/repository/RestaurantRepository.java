@@ -19,16 +19,20 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
 	public Page<Restaurant> findByNameLikeOrAddressLikeOrderByLowestPriceAsc(String nameKeyword, String addressKeyword,
 			Pageable pageable);
 
-	//最低価格で検索
-	public Page<Restaurant> findByLowestPriceLessThanEqualOrderByCreatedAtDesc(Integer lowestPrice, Pageable pageable);
+	//最高価格で検索
+	public Page<Restaurant> findByHighestPriceLessThanEqualOrderByCreatedAtDesc(Integer lowestPrice, Pageable pageable);
 
-	public Page<Restaurant> findByLowestPriceLessThanEqualOrderByLowestPriceAsc(Integer lowestPrice, Pageable pageable);
+	public Page<Restaurant> findByHighestPriceLessThanEqualOrderByLowestPriceAsc(Integer lowestPrice, Pageable pageable);
 
 	//すべて取得
 	public Page<Restaurant> findAllByOrderByCreatedAtDesc(Pageable pageable);
 
-	public Page<Restaurant> findAllByOrderByLowestPriceAsc(Pageable pageable);
+	public Page<Restaurant> findAllByOrderByHighestPriceAsc(Pageable pageable);
 
 	//ホーム用10件表示
 	public List<Restaurant> findTop6ByOrderByCreatedAtDesc();
 }
+
+
+
+

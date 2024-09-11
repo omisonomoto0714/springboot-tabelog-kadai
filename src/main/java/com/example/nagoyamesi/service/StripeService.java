@@ -19,6 +19,7 @@ public class StripeService {
 	public String createStripeSession(HttpServletRequest httpServletRequest, User user) {
 		Stripe.apiKey = stripeApiKey;
 		String requestUrl = new String(httpServletRequest.getRequestURL());
+
 		SessionCreateParams params = SessionCreateParams.builder()
 				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
 				.addLineItem(

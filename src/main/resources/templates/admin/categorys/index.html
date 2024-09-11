@@ -17,7 +17,7 @@
                          <div class="col-xl-9 col-xl-10 col-lg-11">
                              <nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                  <ol class="breadcrumb mb-0"> 
-                                     <li class="breadcrumb-item"><a th:href="@{/admin/restaurants}">店舗一覧</a></li>                                                            
+                                      <li class="breadcrumb-item"><a th:href="@{/admin/restaurants}">店舗一覧</a></li>                                                            
                                      <li class="breadcrumb-item active" aria-current="page">カテゴリー一覧</li>
                                  </ol>
                              </nav> 
@@ -58,6 +58,9 @@
 									<td th:text="${category.getCategoryName()}"></td>
 									<td><a th:href="@{/admin/categorys/__${category.getId()}__/edit}">編集</a></td>
 									<td><a href="#" class="nagoyamesi-link-danger" data-bs-toggle="modal" th:data-bs-target="${'#deleteCategoryModal' + category.getId()}">削除</a></td>
+								</tr>
+							</tbody>
+						</table>
 								
 								<!-- 削除用モーダル -->
                                          <div class="modal fade" th:id="${'deleteCategoryModal' + category.getId()}" tabindex="-1" th:aria-labelledby="${'deleteCategoryModalLabel' + category.getId()}">
@@ -77,9 +80,6 @@
                                          </div>      
 								
 								
-								</tr>
-							</tbody>
-						</table>
 								</div>
 								  
 								
@@ -94,7 +94,7 @@
 									<div th:if="${#fields.hasErrors('categoryName')}" class="text-danger small mb-2" th:errors="*{categoryName}"></div>
 										<input type="text" class="form-control" th:field="*{categoryName}" placeholder="カテゴリ名を入力">
    								 
-<!--									</div>-->
+                                   </div>
 									<div class="d-flex justify-content-center">
 									<button type="submit" class="btn text-white shadow-sm nagoyamesi-btn">登録</button>
 									</div>
@@ -102,8 +102,7 @@
  							 </div>
 						</div>
 						</div>
-							</div>
-						</div>
+				
 						
 
                               <!-- ページネーション -->
@@ -137,9 +136,7 @@
  								    </ul>
 							  </nav>
                             </div>
-                             </div>
-                         </div>
-                     </div>
+           
                                          
 
             </main>

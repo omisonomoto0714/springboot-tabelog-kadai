@@ -13,17 +13,16 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.nagoyamesi.entity.Restaurant;
 import com.example.nagoyamesi.form.RestaurantEditForm;
 import com.example.nagoyamesi.form.RestaurantRegisterForm;
-import com.example.nagoyamesi.repository.CategoryRepository;
 import com.example.nagoyamesi.repository.RestaurantRepository;
 
 @Service
 public class RestaurantService {
 	private final RestaurantRepository restaurantRepository;
-	private final CategoryRepository categoryRepository;
 
-	public RestaurantService(RestaurantRepository restaurantRepository, CategoryRepository categoryRepository) {
+
+	public RestaurantService(RestaurantRepository restaurantRepository) {
 		this.restaurantRepository = restaurantRepository;
-		this.categoryRepository = categoryRepository;
+	
 	}
 
 	@Transactional

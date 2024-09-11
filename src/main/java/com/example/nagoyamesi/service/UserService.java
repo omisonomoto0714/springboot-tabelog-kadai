@@ -97,8 +97,8 @@ public class UserService {
 
 		userRepository.save(user);
 		
-		// ユーザーを再認証する
-      
+		 reauthenticateUser(user.getEmail());
+		
 
 	}
 

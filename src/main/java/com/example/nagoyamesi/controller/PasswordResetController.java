@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.nagoyamesi.entity.PasswordResetToken;
 import com.example.nagoyamesi.form.UserPasswordResetForm;
-import com.example.nagoyamesi.repository.UserRepository;
 import com.example.nagoyamesi.service.UserService;
 
 import jakarta.mail.MessagingException;
@@ -26,12 +25,11 @@ import jakarta.validation.Valid;
 public class PasswordResetController {
 
 	private final UserService userService;
-	private final UserRepository userRepository;
 	private final JavaMailSender mailSender;
 
-	public PasswordResetController(UserService userService, UserRepository userRepository, JavaMailSender mailSender) {
+	public PasswordResetController(UserService userService,JavaMailSender mailSender) {
 		this.userService = userService;
-		this.userRepository = userRepository;
+		
 		this.mailSender = mailSender;
 	}
 

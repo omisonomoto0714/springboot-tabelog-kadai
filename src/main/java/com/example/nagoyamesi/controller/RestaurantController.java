@@ -60,7 +60,7 @@ public class RestaurantController {
 		List<Category> category = categoryRepository.findAll();
 
 		if (keyword != null && !keyword.isEmpty()) {
-			if (order != null && order.equals("lowestPrice")) {
+			if (order != null && order.equals("lowestPriceAsc")) {
 				restaurantPage = restaurantRepository.findByNameLikeOrAddressLikeOrderByLowestPriceAsc(
 						"%" + keyword + "%", "%" + keyword + "%", pageable);
 			} else {
@@ -69,16 +69,16 @@ public class RestaurantController {
 			}
 
 		} else if (lowestPrice != null) {
-			if (order != null && order.equals("lowestPriceAsc")) {
-				restaurantPage = restaurantRepository.findByLowestPriceLessThanEqualOrderByLowestPriceAsc(lowestPrice,
+			if (order != null && order.equals("lowestPriceDesc")) {
+				restaurantPage = restaurantRepository.findByHighestPriceLessThanEqualOrderByCreatedAtDesc(lowestPrice,
 						pageable);
 			} else {
-				restaurantPage = restaurantRepository.findByLowestPriceLessThanEqualOrderByCreatedAtDesc(lowestPrice,
+				restaurantPage = restaurantRepository.findByHighestPriceLessThanEqualOrderByLowestPriceAsc(lowestPrice,
 						pageable);
 			}
 		} else {
-			if (order != null && order.equals("lowestPrice")) {
-				restaurantPage = restaurantRepository.findAllByOrderByLowestPriceAsc(pageable);
+			if (order != null && order.equals("lowestPriceAsc")) {
+				restaurantPage = restaurantRepository.findAllByOrderByHighestPriceAsc(pageable);
 			} else {
 				restaurantPage = restaurantRepository.findAllByOrderByCreatedAtDesc(pageable);
 			}
@@ -127,5 +127,10 @@ public class RestaurantController {
 
 		return "restaurants/show";
 	}
+
+
+	
+	
+	
 
 }
