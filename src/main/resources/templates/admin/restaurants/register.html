@@ -103,7 +103,7 @@
 								<div class="col-md-8">
 									<div th:if="${#fields.hasErrors('lowestPrice')}" class="text-danger small mb-2"
 										th:errors="*{lowestPrice}"></div>
-									<input type="number" class="form-control" th:field="*{lowestPrice}">
+									<input type="number" class="form-control" th:field="*{lowestPrice}" min="1">
 								</div>
 							</div>
 
@@ -120,7 +120,7 @@
 								<div class="col-md-8">
 									<div th:if="${#fields.hasErrors('highestPrice')}" class="text-danger small mb-2"
 										th:errors="*{highestPrice}"></div>
-									<input type="number" class="form-control" th:field="*{highestPrice}">
+									<input type="number" class="form-control" th:field="*{highestPrice}" min="1">
 								</div>
 							</div>
 
